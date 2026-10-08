@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AquaShield AI | Water Security Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            💧 AquaShield <span>AI</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#dashboard">Dashboard</a>
+            <a href="#insights">AI Insights</a>
+            <a href="#simulator">Simulator</a>
+            <a href="#actions">Actions</a>
+        </div>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            AI System Online
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                🌎 EL NIÑO WATER SECURITY INTELLIGENCE
+            </div>
+
+            <h1>
+                Smarter Water Decisions<br>
+                <span>Under Uncertainty.</span>
+            </h1>
+
+            <p>
+                AquaShield AI helps communities, institutions and ecosystems
+                prepare for changing rainfall, water availability and demand
+                caused by El Niño.
+            </p>
+
+            <div class="hero-buttons">
+                <button onclick="scrollToSection('dashboard')" class="primary-btn">
+                    Explore Dashboard →
+                </button>
+
+                <button onclick="scrollToSection('simulator')" class="secondary-btn">
+                    Run Scenario
+                </button>
+            </div>
+
+        </div>
+
+        <div class="hero-water">
+
+            <div class="water-circle">
+                <div class="water-icon">💧</div>
+                <strong id="water-security">68%</strong>
+                <small>Water Security</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="section">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-tag">LIVE INTELLIGENCE</span>
+                <h2>Water Security Dashboard</h2>
+            </div>
+
+            <div class="location">
+                📍 Tamil Nadu
+            </div>
+
+        </div>
+
+
+        <!-- KPI CARDS -->
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-top">
+                    <span>🌧️</span>
+                    <span class="trend warning">↓ 18%</span>
+                </div>
+
+                <p>Expected Rainfall</p>
+
+                <h3>682 mm</h3>
+
+                <small>El Niño adjusted forecast</small>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-top">
+                    <span>💧</span>
+                    <span class="trend positive">72%</span>
+                </div>
+
+                <p>Water Availability</p>
+
+                <h3>72%</h3>
+
+                <small>Current storage capacity</small>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-top">
+                    <span>🏙️</span>
+                    <span class="trend warning">↑ 12%</span>
+                </div>
+
+                <p>Water Demand</p>
+
+                <h3>8.4M L/day</h3>
+
+                <small>Estimated community demand</small>
+
+            </div>
+
+
+            <div class="card risk-card">
+
+                <div class="card-top">
+                    <span>⚠️</span>
+                    <span class="risk-label">MODERATE</span>
+                </div>
+
+                <p>Water Stress Risk</p>
+
+                <h3>42 / 100</h3>
+
+                <div class="progress">
+                    <div class="progress-fill" style="width:42%"></div>
+                </div>
+
+                <small>AI calculated risk score</small>
+
+            </div>
+
+        </div>
+
+
+        <!-- MAIN GRID -->
+
+        <div class="dashboard-grid">
+
+            <!-- RAINFALL CHART -->
+
+            <div class="panel large-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h3>Rainfall Outlook</h3>
+                        <p>AI forecast under El Niño uncertainty</p>
+                    </div>
+
+                    <select id="forecastSelect" onchange="changeForecast()">
+                        <option value="normal">Normal</option>
+                        <option value="elnino" selected>El Niño</option>
+                        <option value="severe">Severe El Niño</option>
+                    </select>
+
+                </div>
+
+                <div class="chart">
+
+                    <div class="chart-line line1"></div>
+
+                    <div class="chart-labels">
+                        <span>Oct</span>
+                        <span>Nov</span>
+                        <span>Dec</span>
+                        <span>Jan</span>
+                        <span>Feb</span>
+                        <span>Mar</span>
+                    </div>
+
+                    <div class="bars">
+
+                        <div style="height:70%"><span>120</span></div>
+                        <div style="height:55%"><span>95</span></div>
+                        <div style="height:42%"><span>72</span></div>
+                        <div style="height:50%"><span>85</span></div>
+                        <div style="height:35%"><span>60</span></div>
+                        <div style="height:46%"><span>78</span></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESERVOIR -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h3>Reservoir Status</h3>
+                        <p>Regional storage</p>
+                    </div>
+
+                    <span class="live-badge">LIVE</span>
+                </div>
+
+                <div class="reservoir">
+
+                    <div class="tank">
+
+                        <div class="tank-water">
+                            <span>72%</span>
+                        </div>
+
+                    </div>
+
+                    <div class="reservoir-info">
+
+                        <strong>72%</strong>
+                        <p>Available capacity</p>
+
+                        <div class="mini-row">
+                            <span>Safe level</span>
+                            <b>65%</b>
+                        </div>
+
+                        <div class="mini-row">
+                            <span>Critical level</span>
+                            <b>30%</b>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- AI INSIGHTS -->
+
+    <section id="insights" class="section dark-section">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-tag">ARTIFICIAL INTELLIGENCE</span>
+                <h2>AI Decision Insights</h2>
+            </div>
+
+            <span class="ai-badge">🤖 AI ANALYZED</span>
+
+        </div>
+
+
+        <div class="insight-grid">
+
+            <div class="insight critical">
+
+                <div class="insight-icon">⚠️</div>
+
+                <div>
+
+                    <h3>Rainfall Uncertainty</h3>
+
+                    <p>
+                        Rainfall may remain below seasonal average.
+                        Prepare for irregular rainfall patterns.
+                    </p>
+
+                    <strong>Risk: Medium</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="insight safe">
+
+                <div class="insight-icon">💧</div>
+
+                <div>
+
+                    <h3>Current Water Buffer</h3>
+
+                    <p>
+                        Current reservoir levels provide a reasonable
+                        short-term buffer if demand is controlled.
+                    </p>
+
+                    <strong>Confidence: 82%</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="insight action">
+
+                <div class="insight-icon">🤖</div>
+
+                <div>
+
+                    <h3>Recommended Action</h3>
+
+                    <p>
+                        Reduce non-essential consumption by 10–15%
+                        and increase rainwater harvesting.
+                    </p>
+
+                    <strong>Priority: High</strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SIMULATOR -->
+
+    <section id="simulator" class="section">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-tag">WHAT-IF ANALYSIS</span>
+
+                <h2>Water Security Simulator</h2>
+
+                <p>
+                    Explore how different decisions affect future water security.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="simulator">
+
+            <div class="controls">
+
+                <label>
+                    🌧️ Rainfall Change
+                    <span id="rainValue">-20%</span>
+                </label>
+
+                <input
+                    type="range"
+                    id="rainfall"
+                    min="-50"
+                    max="20"
+                    value="-20"
+                    oninput="updateSimulator()"
+                >
+
+
+                <label>
+                    🏙️ Demand Change
+                    <span id="demandValue">+10%</span>
+                </label>
+
+                <input
+                    type="range"
+                    id="demand"
+                    min="-20"
+                    max="40"
+                    value="10"
+                    oninput="updateSimulator()"
+                >
+
+
+                <label>
+                    ♻️ Conservation Effort
+                    <span id="conservationValue">20%</span>
+                </label>
+
+                <input
+                    type="range"
+                    id="conservation"
+                    min="0"
+                    max="50"
+                    value="20"
+                    oninput="updateSimulator()"
+                >
+
+            </div>
+
+
+            <div class="simulation-result">
+
+                <p>Predicted Water Security</p>
+
+                <div class="security-score" id="securityScore">
+                    68
+                </div>
+
+                <div class="score-label" id="scoreLabel">
+                    MODERATE SECURITY
+                </div>
+
+                <div class="simulation-message" id="simulationMessage">
+                    Increase conservation to improve future water security.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACTIONS -->
+
+    <section id="actions" class="section">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-tag">AI RECOMMENDATIONS</span>
+
+                <h2>Recommended Actions</h2>
+            </div>
+
+        </div>
+
+
+        <div class="action-grid">
+
+            <div class="action-card">
+
+                <div class="action-number">01</div>
+
+                <h3>💧 Conserve Water</h3>
+
+                <p>
+                    Reduce non-essential water consumption by
+                    10–15% during high-risk periods.
+                </p>
+
+                <button onclick="takeAction('Water conservation')">
+                    Apply Action →
+                </button>
+
+            </div>
+
+
+            <div class="action-card">
+
+                <div class="action-number">02</div>
+
+                <h3>🌧️ Harvest Rainwater</h3>
+
+                <p>
+                    Increase rainwater harvesting capacity before
+                    uncertain rainfall events.
+                </p>
+
+                <button onclick="takeAction('Rainwater harvesting')">
+                    Apply Action →
+                </button>
+
+            </div>
+
+
+            <div class="action-card">
+
+                <div class="action-number">03</div>
+
+                <h3>🌱 Protect Ecosystems</h3>
+
+                <p>
+                    Maintain minimum water requirements for
+                    wetlands, agriculture and natural ecosystems.
+                </p>
+
+                <button onclick="takeAction('Ecosystem protection')">
+                    Apply Action →
+                </button>
+
+            </div>
+
+
+            <div class="action-card">
+
+                <div class="action-number">04</div>
+
+                <h3>📢 Community Alert</h3>
+
+                <p>
+                    Share AI-generated water alerts with
+                    communities and institutions.
+                </p>
+
+                <button onclick="takeAction('Community alert')">
+                    Send Alert →
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="logo">
+            💧 AquaShield <span>AI</span>
+        </div>
+
+        <p>
+            AI-powered decision intelligence for a water-secure future.
+        </p>
+
+        <div>
+            🌎 El Niño • 🤖 AI • 💧 Water Security
+        </div>
+
+    </footer>
+
+
+    <div id="toast" class="toast">
+        Action applied successfully ✓
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
